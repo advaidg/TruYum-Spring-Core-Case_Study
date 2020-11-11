@@ -10,26 +10,10 @@ import com.cognizant.truyum.model.MenuItem;
 import com.cognizant.truyum.util.DateUtil;
 
 public class MenuItemDaoCollectionImpl implements MenuItemDao {
-	@Autowired
-	private static List<MenuItem> menuItemList;
 	
-	public MenuItemDaoCollectionImpl() {
-		if (menuItemList == null) {
-			{
-				menuItemList = new ArrayList<MenuItem>();
-				menuItemList.add(new MenuItem(1, "sandwich", 99.00f, true, new DateUtil().convertToDate("15/03/2017"),
-						"Main Course", true));
-				menuItemList.add(new MenuItem(2, "Burger", 129.00f, true, new DateUtil().convertToDate("23/12/2017"),
-						"Main Course", false));
-				menuItemList.add(new MenuItem(3, "Pizza", 149.00f, true, new DateUtil().convertToDate("21/08/2018"),
-						"Main Course", false));
-				menuItemList.add(new MenuItem(4, "French Fries", 57.00f, false,
-						new DateUtil().convertToDate("02/07/2017"), "Starters", true));
-				menuItemList.add(new MenuItem(000005, "Chocolate Brownie", 32.00f, true,
-						new DateUtil().convertToDate("02/11/2022"), "Dessert", true));
-			}
-		}
-	}
+	private  List<MenuItem> menuItemList;
+	
+	
 	@Override
 	public List<MenuItem> getMenuItemListAdmin() {
 		return menuItemList;

@@ -9,6 +9,7 @@
 	<bean id="dateFormat" class="java.text.SimpleDateFormat">
 		<constructor-arg value="dd/MM/yyyy" />
 	</bean>
+
 	<bean id="sandwich" class="com.cognizant.truyum.model.MenuItem">
 		<property name="id" value="1"></property>
 		<property name="name" value="Sandwich"></property>
@@ -22,6 +23,7 @@
 		<property name="category" value="Main Course"></property>
 		<property name="freeDelivery" value="True"></property>
 	</bean>
+
 	<bean id="burger" class="com.cognizant.truyum.model.MenuItem">
 		<property name="id" value="2"></property>
 		<property name="name" value="Burger"></property>
@@ -35,6 +37,7 @@
 		<property name="category" value="Main Course"></property>
 		<property name="freeDelivery" value="False"></property>
 	</bean>
+
 	<bean id="pizza" class="com.cognizant.truyum.model.MenuItem">
 		<property name="id" value="3"></property>
 		<property name="name" value="Pizza"></property>
@@ -48,6 +51,7 @@
 		<property name="category" value="Main Course"></property>
 		<property name="freeDelivery" value="False"></property>
 	</bean>
+
 	<bean id="fries" class="com.cognizant.truyum.model.MenuItem">
 		<property name="id" value="4"></property>
 		<property name="name" value="French Fries"></property>
@@ -61,8 +65,8 @@
 		<property name="category" value="Starters"></property>
 		<property name="freeDelivery" value="True"></property>
 	</bean>
-	<bean id="brownie"
-		class="com.cognizant.truyum.model.MenuItem">
+
+	<bean id="brownie" class="com.cognizant.truyum.model.MenuItem">
 		<property name="id" value="5"></property>
 		<property name="name" value="Chocolate Brownie"></property>
 		<property name="price" value="32.0"></property>
@@ -75,18 +79,18 @@
 		<property name="category" value="Dessert"></property>
 		<property name="freeDelivery" value="True"></property>
 	</bean>
+
 	<bean id="menuItems" class="java.util.ArrayList">
 		<constructor-arg>
 			<list>
-				<ref bean="sandwich"/>
-				<ref bean="burger"/>
-				<ref bean="pizza"/>
-				<ref bean="fries"/>
-				<ref bean="brownie"/>
+				<ref bean="sandwich" />
+				<ref bean="burger" />
+				<ref bean="pizza" />
+				<ref bean="fries" />
+				<ref bean="brownie" />
 			</list>
-		
 		</constructor-arg>
-	
+
 	</bean>
 
 
