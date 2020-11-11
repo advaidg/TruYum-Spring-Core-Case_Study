@@ -2,14 +2,15 @@ package com.cognizant.truyum.dao;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.text.ParseException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 import com.cognizant.truyum.model.Cart;
 import com.cognizant.truyum.model.MenuItem;
+import com.cognizant.truyum.service.MenuItemService;
 
 public class CartDaoCollectionImpl implements CartDao {
 
@@ -27,8 +28,9 @@ public class CartDaoCollectionImpl implements CartDao {
 
 	@Override
 	public void addCartItem(long userId, long menuItemId) throws ClassNotFoundException, IOException, SQLException {
-		MenuItemDao MenuItemDao = new MenuItemDaoCollectionImpl();
-		MenuItem menuItem = MenuItemDao.getMenuItem(menuItemId);
+		ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("spring.xml");
+		MenuItemService menutItemService = (MenuItemService) ctx.getBean("menuItemService");
+		MenuItem menuItem = menutItemService.getMenuItem(menuItemId);
 		if (userCarts.containsKey(userId)) {
 			List<MenuItem> list = userCarts.get(userId).getMenuItemList();
 			list.add(menuItem);

@@ -4,14 +4,15 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.cognizant.truyum.dao.CartDao;
 import com.cognizant.truyum.dao.CartEmptyException;
 import com.cognizant.truyum.model.MenuItem;
 
 public class CartService {
+	@Autowired
 	private CartDao cartDao;
-
-
 
 	public void setCartDao(CartDao cartDao) {
 		this.cartDao = cartDao;
@@ -23,10 +24,13 @@ public class CartService {
 
 	}
 
-	public void removeCartItem(long userId, long menuItemId) throws ClassNotFoundException, CartEmptyException, IOException, SQLException {
+	public void removeCartItem(long userId, long menuItemId)
+			throws ClassNotFoundException, CartEmptyException, IOException, SQLException {
 		cartDao.removeCartItem(userId, menuItemId);
 	}
-	public List<MenuItem> getAllCartItems(long userid) throws CartEmptyException, ClassNotFoundException, IOException, SQLException {
+
+	public List<MenuItem> getAllCartItems(long userid)
+			throws CartEmptyException, ClassNotFoundException, IOException, SQLException {
 
 		return cartDao.getAllCartItems(userid);
 
