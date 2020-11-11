@@ -99,7 +99,7 @@
 
 	<bean id="menuItemService"
 		class="com.cognizant.truyum.service.MenuItemService"
-		autowire-candidate="true">
+		>
 
 	</bean>
 
