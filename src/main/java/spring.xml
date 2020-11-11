@@ -5,7 +5,7 @@
             http://www.springframework.org/schema/beans/spring-beans.xsd
             http://www.springframework.org/schema/context
             http://www.springframework.org/schema/context/spring-context-3.0.xsd">
-		<context:component-scan base-package="com.cognizant.*"/>
+	
 	<bean id="dateFormat" class="java.text.SimpleDateFormat">
 		<constructor-arg value="dd/MM/yyyy" />
 	</bean>
@@ -92,7 +92,7 @@
 		</constructor-arg>
 
 	</bean>
-	<bean id="MenuItemService" class="com.cognizant.truyum.service.MenuItemService" autowire-candidate="true"></bean>
+	
 
 
 </beans>

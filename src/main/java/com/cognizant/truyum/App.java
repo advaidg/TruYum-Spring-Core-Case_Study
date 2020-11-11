@@ -18,7 +18,7 @@ public class App
 {
     public static void main( String[] args ) throws ClassNotFoundException, IOException, SQLException
     {
-        ApplicationContext app = new ClassPathXmlApplicationContext("sspring.xml");
+        ApplicationContext app = new ClassPathXmlApplicationContext("spring.xml");
         List<MenuItem> menuItems=(List<MenuItem>) app.getBean("menuItems");
         for(MenuItem item : menuItems)
         {
