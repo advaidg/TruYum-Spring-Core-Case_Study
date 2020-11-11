@@ -9,24 +9,23 @@ import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.cognizant.truyum.dao.MenuItemDao;
 import com.cognizant.truyum.model.MenuItem;
 
 /**
  * @author Advaid Gireesan
  *
  */
+//@Configuration
+//@ComponentScan("com.cognizant.*")
 public class MenuItemServiceTest {
 
 	private MenuItemService menuItemService;

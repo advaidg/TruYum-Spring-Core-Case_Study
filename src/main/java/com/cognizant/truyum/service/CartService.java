@@ -5,11 +5,12 @@ import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.cognizant.truyum.dao.CartDao;
 import com.cognizant.truyum.dao.CartEmptyException;
 import com.cognizant.truyum.model.MenuItem;
-
+@Service("CartService")
 public class CartService {
 	@Autowired
 	private CartDao cartDao;
