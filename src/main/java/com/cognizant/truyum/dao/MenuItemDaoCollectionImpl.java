@@ -7,17 +7,25 @@ import java.util.List;
 import org.springframework.stereotype.Component;
 
 import com.cognizant.truyum.model.MenuItem;
-@Component
+
 public class MenuItemDaoCollectionImpl implements MenuItemDao {
-	
-	private  List<MenuItem> menuItemList;
-	
-	
+
+	List<MenuItem> menuItemList;
+
+	public List<MenuItem> getMenuItemList() {
+		return menuItemList;
+	}
+
+	public void setMenuItemList(List<MenuItem> menuItemList) {
+		this.menuItemList = menuItemList;
+	}
+
 	@Override
 	public List<MenuItem> getMenuItemListAdmin() {
 		return menuItemList;
 
 	}
+
 	@Override
 	public List<MenuItem> getMenuItemListCustomer() {
 		List<MenuItem> customermenu = new ArrayList<MenuItem>();
@@ -31,6 +39,7 @@ public class MenuItemDaoCollectionImpl implements MenuItemDao {
 		return customermenu;
 
 	}
+
 	@Override
 	public void modifyMenuItem(MenuItem menuItem) {
 		for (MenuItem mitem : menuItemList) {
@@ -44,6 +53,7 @@ public class MenuItemDaoCollectionImpl implements MenuItemDao {
 			}
 		}
 	}
+
 	@Override
 	public MenuItem getMenuItem(long menuItemId)
 

@@ -5,7 +5,9 @@
             http://www.springframework.org/schema/beans/spring-beans.xsd
             http://www.springframework.org/schema/context
             http://www.springframework.org/schema/context/spring-context-3.0.xsd">
-	
+	<bean
+		class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />
+
 	<bean id="dateFormat" class="java.text.SimpleDateFormat">
 		<constructor-arg value="dd/MM/yyyy" />
 	</bean>
@@ -80,8 +82,9 @@
 		<property name="freeDelivery" value="True"></property>
 	</bean>
 
-	<bean id="menuItems" class="java.util.ArrayList">
-		<constructor-arg>
+	<bean id="menuItemDaoCollectionImpl"
+		class="com.cognizant.truyum.dao.MenuItemDaoCollectionImpl">
+		<property name="menuItemList">
 			<list>
 				<ref bean="sandwich" />
 				<ref bean="burger" />
@@ -89,10 +92,16 @@
 				<ref bean="fries" />
 				<ref bean="brownie" />
 			</list>
-		</constructor-arg>
+		</property>
 
 	</bean>
-	
+
+
+	<bean id="menuItemService"
+		class="com.cognizant.truyum.service.MenuItemService"
+		autowire-candidate="true">
+
+	</bean>
 
 
 </beans>

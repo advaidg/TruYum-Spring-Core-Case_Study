@@ -1,5 +1,7 @@
 package com.cognizant.truyum.service;
 
+import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 
 import com.cognizant.truyum.dao.CartDao;
@@ -9,20 +11,24 @@ import com.cognizant.truyum.model.MenuItem;
 public class CartService {
 	private CartDao cartDao;
 
-	public List<MenuItem> getAllCartItems(long userId) throws CartEmptyException {
-		return null;
 
-	}
 
 	public void setCartDao(CartDao cartDao) {
+		this.cartDao = cartDao;
+	}
+
+	public void addCartItem(long userId, long menuItemId) throws ClassNotFoundException, IOException, SQLException {
+
+		cartDao.addCartItem(userId, menuItemId);
 
 	}
 
-	public void addCartItem(long userId, long menuItemId) {
-
+	public void removeCartItem(long userId, long menuItemId) throws ClassNotFoundException, CartEmptyException, IOException, SQLException {
+		cartDao.removeCartItem(userId, menuItemId);
 	}
+	public List<MenuItem> getAllCartItems(long userid) throws CartEmptyException, ClassNotFoundException, IOException, SQLException {
 
-	public void removeCartItem(long userId, long menuItemId) {
+		return cartDao.getAllCartItems(userid);
 
 	}
 }

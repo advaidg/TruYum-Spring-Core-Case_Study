@@ -9,7 +9,15 @@ import com.cognizant.truyum.model.MenuItem;
 import com.cognizant.truyum.util.DateUtil;
 
 public class MenuItemDaoCollectionImplTest {
-	static MenuItemDao menuItemDao = new MenuItemDaoCollectionImpl();
+	private static  MenuItemDao menuItemDao = new MenuItemDaoCollectionImpl();
+
+	public MenuItemDao getMenuItemDao() {
+		return menuItemDao;
+	}
+
+	public void setMenuItemDao(MenuItemDao menuItemDao) {
+		this.menuItemDao = menuItemDao;
+	}
 
 	public static void main(String[] args) throws ClassNotFoundException, IOException, SQLException, ParseException {
 		System.out.println("TESTING MENU ITEM LIST");

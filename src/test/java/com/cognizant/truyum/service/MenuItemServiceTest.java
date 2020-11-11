@@ -3,6 +3,7 @@
  */
 package com.cognizant.truyum.service;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
@@ -13,7 +14,9 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.cognizant.truyum.dao.MenuItemDao;
 import com.cognizant.truyum.model.MenuItem;
@@ -23,21 +26,22 @@ import com.cognizant.truyum.model.MenuItem;
  *
  */
 public class MenuItemServiceTest {
-	
+
 	private MenuItemService menuItemService;
+
 	@Before
-	public void initializeService() {
-		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
-		context.scan("com.cognizant.truyum");
-		context.refresh();
+	public void  initializeService() {
+		ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
+		// context.scan("com.cognizant.truyum");
+		// context.refresh();
 		menuItemService = (MenuItemService) context.getBean("menuItemService");
 
 	}
 
 	@Test
 	public void testGetMenuItemListAdminSize() throws ClassNotFoundException, IOException, SQLException {
-		
-		
+		List<MenuItem> menuList = menuItemService.getMenuItemListAdmin();
+		assertEquals(5, menuList.size());
 
 	}
 
@@ -51,5 +55,13 @@ public class MenuItemServiceTest {
 		}
 		assertTrue(result);
 
+	}
+	@Test
+	public void testGetMenuItemListCustomerSize() throws ClassNotFoundException, IOException, SQLException {
+
+		List<MenuItem> menuItemList = menuItemService.getMenuItemListCustomer();
+		
+		assertEquals(3,menuItemList.size());
+		
 	}
 }

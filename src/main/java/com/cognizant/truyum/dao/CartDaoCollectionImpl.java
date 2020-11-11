@@ -13,22 +13,18 @@ import com.cognizant.truyum.model.MenuItem;
 
 public class CartDaoCollectionImpl implements CartDao {
 
-	private static Map<Long, Cart> userCarts;
+	private Map<Long, Cart> userCarts;
 
-	public static Map<Long, Cart> getUserCarts() {
-		return userCarts;
+	public Map<Long, Cart> getUserCarts() {
+		return this.userCarts;
 	}
 
-	public static void setUserCarts(Map<Long, Cart> userCarts) {
-		CartDaoCollectionImpl.userCarts = userCarts;
+	public void setUserCarts(Map<Long, Cart> userCarts) {
+		this.userCarts = userCarts;
 	}
 
-	public CartDaoCollectionImpl() throws ParseException {
-		if (userCarts == null) {
-			userCarts = new HashMap<Long, Cart>();
 
-		}
-	}
+
 	@Override
 	public void addCartItem(long userId, long menuItemId) throws ClassNotFoundException, IOException, SQLException {
 		MenuItemDao MenuItemDao = new MenuItemDaoCollectionImpl();
@@ -48,6 +44,7 @@ public class CartDaoCollectionImpl implements CartDao {
 
 		}
 	}
+
 	@Override
 	public List<MenuItem> getAllCartItems(long userId) throws CartEmptyException {
 		double total = 0;
@@ -64,6 +61,7 @@ public class CartDaoCollectionImpl implements CartDao {
 		return allItems;
 
 	}
+
 	@Override
 	public void removeCartItem(long userId, long menuItemId) throws CartEmptyException {
 		Cart c = userCarts.get(userId);
