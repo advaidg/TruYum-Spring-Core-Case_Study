@@ -4,11 +4,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.cognizant.truyum.model.MenuItem;
-import com.cognizant.truyum.util.DateUtil;
-
+@Component
 public class MenuItemDaoCollectionImpl implements MenuItemDao {
 	
 	private  List<MenuItem> menuItemList;

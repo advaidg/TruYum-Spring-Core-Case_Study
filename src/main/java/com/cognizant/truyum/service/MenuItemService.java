@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.cognizant.truyum.dao.MenuItemDao;
 import com.cognizant.truyum.model.MenuItem;
-@Service
+@Service("menuItemService")
 public class MenuItemService {
 	@Autowired
 	private MenuItemDao menuItemDao;
