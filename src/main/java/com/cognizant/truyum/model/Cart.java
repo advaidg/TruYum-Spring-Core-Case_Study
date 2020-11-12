@@ -1,16 +1,28 @@
 package com.cognizant.truyum.model;
 
 import java.util.List;
-
+/**
+ * 
+ * @author Advaid Gireesan
+ *
+ */
 public class Cart {
-
+	/**
+	 * 
+	 */
 	private List<MenuItem> menuItemList;
+	/**
+	 * 
+	 */
 	private double total;
-
-	public Cart(List<MenuItem> menuItemList) {
+	/**
+	 * 
+	 * @param menuItemList
+	 */
+	public Cart(final List<MenuItem> menuItemList) {
 		super();
 		this.menuItemList = menuItemList;
-		this.total = total;
+		
 	}
 
 	public List<MenuItem> getMenuItemList() {
@@ -20,12 +32,16 @@ public class Cart {
 	public double getTotal() {
 		return total;
 	}
-
-	public void setMenuItemList(List<MenuItem> menuItemList) {
+	/**
+	 */
+	public void setMenuItemList(final List<MenuItem> menuItemList) {
 		this.menuItemList = menuItemList;
 	}
-
-	public void setTotal(double total) {
+	/**
+	 * 
+	 * @param total
+	 */
+	public void setTotal(final double total) {
 		this.total = total;
 	}
 

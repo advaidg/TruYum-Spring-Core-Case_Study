@@ -1,23 +1,63 @@
 package com.cognizant.truyum.model;
 
 import java.util.Date;
-
+/**
+ * 
+ * @author Advaid Gireesan
+ *
+ */
 public class MenuItem {
-	
+	/**
+	 * 
+	 */
 	private long id;
+	/**
+	 * 
+	 */
 	private String name;
+	/**
+	 * 
+	 */
 	private float price;
+	
+	/**
+	 * 
+	 * 
+	 */
+	private boolean active;
+	/**
+	 * 
+	 */
+	/**
+	 * 
+	 */
+	private Date dateOfLaunch;
+	/**
+	 * 
+	 */
+	private String category;
+	/**
+	 * 
+	 */
+	private boolean freeDelivery;
+	/**
+	 * 
+	 */
 	public MenuItem() {
 		super();
 	}
-
-	private boolean active;
-	private Date dateOfLaunch;
-	private String category;
-	private boolean freeDelivery;
-	
-	public MenuItem(long id, String name, float price, boolean active, Date dateofLaunch, String category,
-			boolean freeDelivery) {
+	/**
+	 * 
+	 * @param id
+	 * @param name
+	 * @param price
+	 * @param active
+	 * @param dateofLaunch
+	 * @param category
+	 * @param freeDelivery
+	 */
+	public MenuItem(final long id, final String name, final float price, final boolean active, final Date dateofLaunch, final String category,
+			final boolean freeDelivery) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -48,25 +88,25 @@ public class MenuItem {
 	public boolean isFreeDelivery() {
 		return freeDelivery;
 	}
-	public void setId(long id) {
+	public void setId(final long id) {
 		this.id = id;
 	}
-	public void setName(String name) {
+	public void setName(final String name) {
 		this.name = name;
 	}
-	public void setPrice(float price) {
+	public void setPrice(final float price) {
 		this.price = price;
 	}
-	public void setActive(boolean active) {
+	public void setActive(final boolean active) {
 		this.active = active;
 	}
-	public void setDateOfLaunch(Date dateofLaunch) {
+	public void setDateOfLaunch(final Date dateofLaunch) {
 		this.dateOfLaunch = dateofLaunch;
 	}
-	public void setCategory(String category) {
+	public void setCategory(final String category) {
 		this.category = category;
 	}
-	public void setFreeDelivery(boolean freeDelivery) {
+	public void setFreeDelivery(final boolean freeDelivery) {
 		this.freeDelivery = freeDelivery;
 	}
 	@Override
@@ -76,16 +116,23 @@ public class MenuItem {
 	}
 
 	@Override
-	public boolean equals(Object obj) {
+	/**
+	 * 
+	 */
+	@SuppressWarnings("PMD.OnlyOneReturn")
+	public boolean equals(final Object obj) {
 		if (this == obj)
 			return true;
 		if (obj == null)
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
+		@SuppressWarnings("PMD.LocalVariableCouldBeFinal")
 		MenuItem other = (MenuItem) obj;
 		if (id != other.id)
-			return false;
+		{	return false;
+		
+		}
 		return true;
 	}
 	

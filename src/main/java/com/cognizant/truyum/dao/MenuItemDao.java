@@ -6,7 +6,11 @@ import java.text.ParseException;
 import java.util.List;
 
 import com.cognizant.truyum.model.MenuItem;
-
+/**
+ * 
+ * @author Advaid Gireesan
+ *
+ */
 public interface MenuItemDao {
 public List<MenuItem> getMenuItemListAdmin() throws ClassNotFoundException, IOException, SQLException;
 

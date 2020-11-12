@@ -4,24 +4,43 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.ImportResource;
 import org.springframework.stereotype.Component;
 
 import com.cognizant.truyum.model.MenuItem;
+
 @Component
 @ImportResource("spring.xml")
+/**
+ * 
+ * @author Advaid Gireesan
+ *
+ */
 public class MenuItemDaoCollectionImpl implements MenuItemDao {
-	@Autowired
-	@Qualifier("menuItemList")
-	List<MenuItem> menuItemList;
+	/**
+	 */
+	private List<MenuItem> menuItemList;
+	
+	/**
+	 * 
+	 */
+	public MenuItemDaoCollectionImpl() {
+		super();
+	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public List<MenuItem> getMenuItemList() {
 		return menuItemList;
 	}
 
-	public void setMenuItemList(List<MenuItem> menuItemList) {
+	/**
+	 * 
+	 * @param menuItemList
+	 */
+	public void setMenuItemList(final List<MenuItem> menuItemList) {
 		this.menuItemList = menuItemList;
 	}
 
@@ -32,10 +51,13 @@ public class MenuItemDaoCollectionImpl implements MenuItemDao {
 	}
 
 	@Override
+	/**
+	 * 
+	 */
 	public List<MenuItem> getMenuItemListCustomer() {
-		List<MenuItem> customermenu = new ArrayList<MenuItem>();
-		Date current = new Date();
-		for (MenuItem menuItem : menuItemList) {
+		final List<MenuItem> customermenu = new ArrayList<MenuItem>();
+		final Date current = new Date();
+		for (final MenuItem menuItem : menuItemList) {
 			if (menuItem.getDateOfLaunch().getTime() <= current.getTime() && menuItem.isActive()) {
 				customermenu.add(menuItem);
 			}
@@ -46,8 +68,11 @@ public class MenuItemDaoCollectionImpl implements MenuItemDao {
 	}
 
 	@Override
-	public void modifyMenuItem(MenuItem menuItem) {
-		for (MenuItem mitem : menuItemList) {
+	/**
+	 * 
+	 */
+	public void modifyMenuItem(final MenuItem menuItem) {
+		for (final MenuItem mitem : menuItemList) {
 			if (mitem.equals(menuItem)) {
 				mitem.setName(menuItem.getName());
 				mitem.setCategory(menuItem.getCategory());
@@ -60,10 +85,13 @@ public class MenuItemDaoCollectionImpl implements MenuItemDao {
 	}
 
 	@Override
-	public MenuItem getMenuItem(long menuItemId)
+	/**
+	 * 
+	 */
+	public MenuItem getMenuItem(final long menuItemId)
 
 	{
-		for (MenuItem menuitem : menuItemList) {
+		for (final MenuItem menuitem : menuItemList) {
 			if (menuitem.getId() == menuItemId)
 				return menuitem;
 		}
