@@ -14,8 +14,7 @@ import com.cognizant.truyum.model.MenuItem;
 @Service("CartService")
 /**
  * 
- * @author Advaid Gireesan
- *
+ * @author Advaid Gireesan Service Class
  */
 public class CartService {
 	@Autowired

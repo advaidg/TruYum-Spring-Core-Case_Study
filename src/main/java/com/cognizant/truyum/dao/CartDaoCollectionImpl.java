@@ -14,73 +14,48 @@ import com.cognizant.truyum.service.MenuItemService;
 
 /**
  * 
- * @author Advaid Gireesan
- *
+ * @author Advaid Gireesan 
+ * Implements CARTDAO interface
  */
 public class CartDaoCollectionImpl implements CartDao {
 	/**
-	 * 
+	 * Map
 	 */
 	private Map<Long, Cart> userCarts;
 	/**
-	 * 
+	 * MenuItemDao Object
 	 */
 	private MenuItemDao menuItemDao;
 
-	/**
-	 * 
-	 * @return
-	 */
 	public MenuItemDao getMenuItemDao() {
 		return menuItemDao;
 	}
 
-	/**
-	 * 
-	 * @param menuItemDao
-	 */
 	public void setMenuItemDao(final MenuItemDao menuItemDao) {
 		this.menuItemDao = menuItemDao;
 	}
 
-	/**
-	 * 
-	 * @return
-	 */
 	public Map<Long, Cart> getUserCarts() {
 		return this.userCarts;
 	}
 
 	/**
-	 * 
 	 * @param userCarts
 	 */
 	public void setUserCarts(final Map<Long, Cart> userCarts) {
 		this.userCarts = userCarts;
 	}
 
-//	@Override
-//    public void addCartItem(long userId, long menuItemId) throws ClassNotFoundException, IOException, SQLException {
-//
-//        MenuItemDao menuItemDao = new MenuItemDaoCollectionImpl();
-//        MenuItem item = menuItemDao.getMenuItem(menuItemId);
-//
-//        if (userCarts.containsKey(userId)) {
-//            List<MenuItem> menuItemList = userCarts.get(userId).getMenuItemList();
-//            menuItemList.add(item);
-//            userCarts.get(userId).setMenuItemList(menuItemList);
-//        } else {
-//            List<MenuItem> newUserMenuList = new ArrayList<>();
-//            newUserMenuList.add(item);
-//            Cart cart = new Cart(newUserMenuList);
-//            userCarts.put(userId, cart);
-//        }
-//
-//    }
-
 	@Override
 	/**
+	 * Depending on the userId and menuItemId the corresponding menuItem is added in
+	 * cart against the UserID
 	 * 
+	 * @param userId
+	 * @param menuItemId
+	 * @throws ClassNotFoundException
+	 * @throws IOException
+	 * @throws SQLException
 	 */
 	public void addCartItem(final long userId, final long menuItemId)
 			throws ClassNotFoundException, IOException, SQLException {
@@ -105,10 +80,14 @@ public class CartDaoCollectionImpl implements CartDao {
 		ctx.close();
 	}
 
-	@Override
 	/**
+	 * Return list of menuItems for the given UserId
 	 * 
+	 * @param userId
+	 * @return
+	 * @throws CartEmptyException
 	 */
+	@Override
 	public List<MenuItem> getAllCartItems(final long userId) throws CartEmptyException {
 
 		final Cart cart = userCarts.get(userId);
@@ -126,10 +105,14 @@ public class CartDaoCollectionImpl implements CartDao {
 
 	}
 
-	@Override
 	/**
+	 * Removes a particular item from the given Users Cart
 	 * 
+	 * @param userId
+	 * @param menuItemId
+	 * @throws CartEmptyException
 	 */
+	@Override
 	public void removeCartItem(final long userId, final long menuItemId) throws CartEmptyException {
 		final Cart cart = userCarts.get(userId);
 		final List<MenuItem> allItems = cart.getMenuItemList();

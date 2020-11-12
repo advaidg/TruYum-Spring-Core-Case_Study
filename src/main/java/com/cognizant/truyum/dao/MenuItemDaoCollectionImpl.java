@@ -13,33 +13,25 @@ import com.cognizant.truyum.model.MenuItem;
 @ImportResource("spring.xml")
 /**
  * 
- * @author Advaid Gireesan
- *
+ * @author Advaid Gireesan Implements MenuItemDao Interface
  */
 public class MenuItemDaoCollectionImpl implements MenuItemDao {
 	/**
+	 * List Of MenuItems("Sandwich..")
 	 */
 	private List<MenuItem> menuItemList;
 
 	/**
-	 * 
+	 * Default Constructor
 	 */
 	public MenuItemDaoCollectionImpl() {
 		super();
 	}
 
-	/**
-	 * 
-	 * @return
-	 */
 	public List<MenuItem> getMenuItemList() {
 		return menuItemList;
 	}
 
-	/**
-	 * 
-	 * @param menuItemList
-	 */
 	public void setMenuItemList(final List<MenuItem> menuItemList) {
 		this.menuItemList = menuItemList;
 	}
@@ -50,10 +42,12 @@ public class MenuItemDaoCollectionImpl implements MenuItemDao {
 
 	}
 
-	@Override
 	/**
+	 * Returns list of MenuItems whose date of launch is before current date
 	 * 
+	 * @return
 	 */
+	@Override
 	public List<MenuItem> getMenuItemListCustomer() {
 		final List<MenuItem> customermenu = new ArrayList<MenuItem>();
 		final Date current = new Date();
@@ -67,10 +61,13 @@ public class MenuItemDaoCollectionImpl implements MenuItemDao {
 
 	}
 
-	@Override
 	/**
+	 * Gets the details of modified menuItem from user Checks for id match Then
+	 * details of the menuItem is changed
 	 * 
+	 * @param menuItem
 	 */
+	@Override
 	public void modifyMenuItem(final MenuItem menuItem) {
 		for (final MenuItem mitem : menuItemList) {
 			if (mitem.equals(menuItem)) {
@@ -84,10 +81,14 @@ public class MenuItemDaoCollectionImpl implements MenuItemDao {
 		}
 	}
 
-	@Override
 	/**
+	 * Takes input of menuItemId and returns that menuItem from the list of
+	 * MenuItems
 	 * 
+	 * @param menuItemId
+	 * @return
 	 */
+	@Override
 	public MenuItem getMenuItem(final long menuItemId)
 
 	{

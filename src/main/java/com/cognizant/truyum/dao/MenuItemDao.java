@@ -9,8 +9,8 @@ import com.cognizant.truyum.model.MenuItem;
 
 /**
  * 
- * @author Advaid Gireesan
- *
+ * @author Advaid Gireesan Interface for maintaining and performing operations
+ *         on (Master)MENU ITEMS
  */
 public interface MenuItemDao {
 	/**

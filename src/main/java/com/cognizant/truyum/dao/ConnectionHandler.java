@@ -10,7 +10,7 @@ import java.util.Properties;
 /**
  * 
  * @author Advaid Gireesan
- *
+ *Used to establish connection with MYSQL database 
  */
 public class ConnectionHandler {
 	/**

@@ -5,51 +5,51 @@ import java.util.Date;
 /**
  * 
  * @author Advaid Gireesan
- *
+ * 
+ *         Model Class MenuItem
  */
 public class MenuItem {
 	/**
-	 * 
+	 * Long For Product Id
 	 */
 	private long id;
 	/**
-	 * 
+	 * Stores Name
 	 */
 	private String name;
 	/**
-	 * 
+	 * Stores Price of item
 	 */
 	private float price;
 
 	/**
 	 * 
-	 * 
+	 * Stores current state of item
 	 */
 	private boolean active;
+
 	/**
-	 * 
-	 */
-	/**
-	 * 
+	 * Stores date of launch
 	 */
 	private Date dateOfLaunch;
 	/**
-	 * 
+	 * Stores the category of item
 	 */
 	private String category;
 	/**
-	 * 
+	 * Stores whether item eligible for free delivery
 	 */
 	private boolean freeDelivery;
 
 	/**
-	 * 
+	 * Default Constructor //Empty No Arguments
 	 */
 	public MenuItem() {
 		super();
 	}
 
 	/**
+	 * Constructor for initializing all the values
 	 * 
 	 * @param id
 	 * @param name

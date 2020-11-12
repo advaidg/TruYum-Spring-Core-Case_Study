@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * 
  * @author Advaid Gireesan
- *
+ *Model Class Cart
  */
 public class Cart {
 	/**

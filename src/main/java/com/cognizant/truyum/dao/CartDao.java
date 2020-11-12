@@ -10,6 +10,7 @@ import com.cognizant.truyum.model.MenuItem;
  * 
  * @author Advaid Gireesan
  *
+ *Interface for maintaining and performing operations on MENU ITEMS in Cart
  */
 public interface CartDao {
 	/**
