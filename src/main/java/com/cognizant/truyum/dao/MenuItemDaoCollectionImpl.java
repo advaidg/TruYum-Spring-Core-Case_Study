@@ -20,7 +20,7 @@ public class MenuItemDaoCollectionImpl implements MenuItemDao {
 	/**
 	 */
 	private List<MenuItem> menuItemList;
-	
+
 	/**
 	 * 
 	 */

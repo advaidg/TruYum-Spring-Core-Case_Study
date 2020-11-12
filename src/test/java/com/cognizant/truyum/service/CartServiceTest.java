@@ -9,14 +9,11 @@ import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.support.AbstractApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.cognizant.truyum.dao.CartEmptyException;
 import com.cognizant.truyum.model.MenuItem;
+
 /**
  * 
  * @author Advaid Gireesan
@@ -45,7 +42,7 @@ public class CartServiceTest {
 		context.close();
 
 	}
-	
+
 	@Test(expected = CartEmptyException.class)
 	/**
 	 * 

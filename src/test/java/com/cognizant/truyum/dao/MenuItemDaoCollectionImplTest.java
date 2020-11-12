@@ -7,6 +7,7 @@ import java.util.List;
 
 import com.cognizant.truyum.model.MenuItem;
 import com.cognizant.truyum.util.DateUtil;
+
 /**
  * 
  * @author Advaid Gireesan
@@ -16,15 +17,16 @@ public class MenuItemDaoCollectionImplTest {
 	/**
 	 * 
 	 */
-	private static  MenuItemDao menuItemDao = new MenuItemDaoCollectionImpl();
+	private static MenuItemDao menuItemDao = new MenuItemDaoCollectionImpl();
 
 	public MenuItemDao getMenuItemDao() {
 		return menuItemDao;
 	}
-	
+
 	public void setMenuItemDao(final MenuItemDao menuItemDao) {
-		this.menuItemDao = menuItemDao;
+		MenuItemDaoCollectionImplTest.menuItemDao = menuItemDao;
 	}
+
 	/**
 	 * 
 	 * @param args
@@ -40,6 +42,7 @@ public class MenuItemDaoCollectionImplTest {
 		testModifyMenuItem();
 		testGetMenuItem();
 	}
+
 	/**
 	 * 
 	 * @throws ClassNotFoundException
@@ -55,6 +58,7 @@ public class MenuItemDaoCollectionImplTest {
 			System.out.println(menuItem);
 		}
 	}
+
 	/**
 	 * 
 	 * @throws ClassNotFoundException
@@ -69,6 +73,7 @@ public class MenuItemDaoCollectionImplTest {
 			System.out.println(item);
 		}
 	}
+
 	/**
 	 * 
 	 * @throws ClassNotFoundException
@@ -85,6 +90,7 @@ public class MenuItemDaoCollectionImplTest {
 		testGetMenuItemListAdmin();
 
 	}
+
 	/**
 	 * 
 	 * @throws ClassNotFoundException

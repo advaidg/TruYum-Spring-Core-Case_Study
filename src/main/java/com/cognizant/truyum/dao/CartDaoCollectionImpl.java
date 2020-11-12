@@ -133,7 +133,7 @@ public class CartDaoCollectionImpl implements CartDao {
 	public void removeCartItem(final long userId, final long menuItemId) throws CartEmptyException {
 		final Cart cart = userCarts.get(userId);
 		final List<MenuItem> allItems = cart.getMenuItemList();
-		
+
 		MenuItem remove = null;
 		for (final MenuItem menuitem : allItems) {
 			if (menuitem.getId() == menuItemId) {

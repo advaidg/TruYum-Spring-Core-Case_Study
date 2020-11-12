@@ -35,9 +35,9 @@ public class MenuItemServiceTest {
 	 * 
 	 */
 	public void initializeService() {
-		AnnotationConfigApplicationContext context = new  AnnotationConfigApplicationContext();
-		 context.scan("com.cognizant.truyum");
-		 context.refresh();
+		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
+		context.scan("com.cognizant.truyum");
+		context.refresh();
 		menuItemService = context.getBean(MenuItemService.class);
 		context.close();
 
@@ -104,7 +104,6 @@ public class MenuItemServiceTest {
 				result = true;
 		}
 		assertFalse(result);
-
 
 	}
 

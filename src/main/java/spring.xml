@@ -81,36 +81,36 @@
 		<property name="category" value="Dessert"></property>
 		<property name="freeDelivery" value="True"></property>
 	</bean>
-	
 
-	<bean id="menuItemList"
-		class="java.util.ArrayList">
-		 <constructor-arg>
+
+	<bean id="menuItemList" class="java.util.ArrayList">
+		<constructor-arg>
 			<list>
 				<ref bean="sandwich" />
 				<ref bean="burger" />
 				<ref bean="pizza" />
 				<ref bean="fries" />
 				<ref bean="brownie" />
-				
+
 			</list>
 		</constructor-arg>
-	
+
 	</bean>
-	<bean id="menuItemDao" class="com.cognizant.truyum.dao.MenuItemDaoCollectionImpl">
+	<bean id="menuItemDao"
+		class="com.cognizant.truyum.dao.MenuItemDaoCollectionImpl">
 		<property name="menuItemList" ref="menuItemList"></property>
 	</bean>
 	<bean id="menuItemService"
 		class="com.cognizant.truyum.service.MenuItemService">
-		</bean>
-	
+	</bean>
+
 	<bean id="menuItemsInCart1" class="java.util.ArrayList">
 		<constructor-arg>
 			<list>
 			</list>
 		</constructor-arg>
 	</bean>
-	
+
 	<bean id="menuItemsInCart2" class="java.util.ArrayList">
 		<constructor-arg>
 			<list>
@@ -121,20 +121,20 @@
 	</bean>
 
 	<bean id="cart1" class="com.cognizant.truyum.model.Cart">
-		<property name="menuItemList" ref="menuItemsInCart1"/>
-		<property name="total" value="0"/>
+		<property name="menuItemList" ref="menuItemsInCart1" />
+		<property name="total" value="0" />
 	</bean>
-	
+
 	<bean id="cart2" class="com.cognizant.truyum.model.Cart">
-		<property name="menuItemList" ref="menuItemsInCart2"/>
-		<property name="total" value="0"/>
+		<property name="menuItemList" ref="menuItemsInCart2" />
+		<property name="total" value="0" />
 	</bean>
 
 	<bean id="cartDaoMap" class="java.util.HashMap">
 		<constructor-arg>
 			<map>
-				<entry key="1" value-ref="cart1"/>
-				<entry key="2" value-ref="cart2"/>
+				<entry key="1" value-ref="cart1" />
+				<entry key="2" value-ref="cart2" />
 			</map>
 		</constructor-arg>
 	</bean>
@@ -148,7 +148,7 @@
 
 	<bean id="CartService"
 		class="com.cognizant.truyum.service.CartService">
-		</bean>
+	</bean>
 
 
 
