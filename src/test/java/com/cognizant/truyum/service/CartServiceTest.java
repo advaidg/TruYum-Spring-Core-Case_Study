@@ -17,31 +17,59 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.cognizant.truyum.dao.CartEmptyException;
 import com.cognizant.truyum.model.MenuItem;
-
+/**
+ * 
+ * @author Advaid Gireesan
+ *
+ */
 public class CartServiceTest {
-	CartService cartService;
-	MenuItemService menuItemService;
+	/**
+	 * 
+	 */
+	private CartService cartService;
+	/**
+	 * 
+	 */
+	private MenuItemService menuItemService;
 
 	@Before
+	/**
+	 * 
+	 */
 	public void initializeService() {
-		AnnotationConfigApplicationContext context = new  AnnotationConfigApplicationContext();
-		 context.scan("com.cognizant.truyum");
-		 context.refresh();
+		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
+		context.scan("com.cognizant.truyum");
+		context.refresh();
 		menuItemService = context.getBean(MenuItemService.class);
 		cartService = (CartService) context.getBean("CartService");
+		context.close();
 
 	}
-
+	
 	@Test(expected = CartEmptyException.class)
+	/**
+	 * 
+	 * @throws CartEmptyException
+	 * @throws ClassNotFoundException
+	 * @throws IOException
+	 * @throws SQLException
+	 */
 	public void testGetAllCartItems() throws CartEmptyException, ClassNotFoundException, IOException, SQLException {
 
-		List<MenuItem> menuItemList = cartService.getAllCartItems(1);
+		final List<MenuItem> menuItemList = cartService.getAllCartItems(1);
 		System.out.println(menuItemList);
-		//assertFalse(!menuItemList.isEmpty());
+		// assertFalse(!menuItemList.isEmpty());
 
 	}
 
 	@Test
+	/**
+	 * 
+	 * @throws CartEmptyException
+	 * @throws ClassNotFoundException
+	 * @throws IOException
+	 * @throws SQLException
+	 */
 	public void testAddCartItem() throws CartEmptyException, ClassNotFoundException, IOException, SQLException {
 
 		List<MenuItem> menuItem;
@@ -50,14 +78,12 @@ public class CartServiceTest {
 		cartService.addCartItem(2, 5);
 		List<MenuItem> menuItemAfter;
 		menuItemAfter = cartService.getAllCartItems(2);
-		boolean result=false;
-		int s1=menuItem.size();
-		System.out.println(s1+" "+menuItemAfter.size());
-		for(MenuItem m : menuItemAfter)
-		{
-			if(m.getName().contentEquals("Chocolate Brownie"))
-			{
-				result= true;
+		boolean result = false;
+		final int s1 = menuItem.size();
+		System.out.println(s1 + " " + menuItemAfter.size());
+		for (MenuItem m : menuItemAfter) {
+			if (m.getName().contentEquals("Chocolate Brownie")) {
+				result = true;
 			}
 		}
 		assertTrue(result);
@@ -65,6 +91,13 @@ public class CartServiceTest {
 	}
 
 	@Test
+	/**
+	 * 
+	 * @throws CartEmptyException
+	 * @throws ClassNotFoundException
+	 * @throws IOException
+	 * @throws SQLException
+	 */
 	public void testRemoveCartItem() throws CartEmptyException, ClassNotFoundException, IOException, SQLException {
 
 		List<MenuItem> menuItemList;
@@ -72,7 +105,7 @@ public class CartServiceTest {
 		cartService.addCartItem(1, 1);
 		menuItemList = cartService.getAllCartItems(1);
 		cartService.removeCartItem(1, 1);
-		List<String> menuItems = new ArrayList<String>();
+		final List<String> menuItems = new ArrayList<String>();
 
 		for (int i = 0; i < menuItemList.size(); i++) {
 
