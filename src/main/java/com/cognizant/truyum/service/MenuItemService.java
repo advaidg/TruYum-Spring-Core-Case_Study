@@ -12,14 +12,22 @@ import org.springframework.stereotype.Service;
 
 import com.cognizant.truyum.dao.MenuItemDao;
 import com.cognizant.truyum.model.MenuItem;
-@Service("menuItemService")
 
+@Service("menuItemService")
+/**
+ * 
+ * @author Advaid Gireesan
+ *
+ */
 public class MenuItemService {
 
 	@Autowired
-	MenuItemDao menuItemDao;
+	/**
+	 * 
+	 */
+	private MenuItemDao menuItemDao;
 
-	public void setMenuItemDao(MenuItemDao menuItemDao) {
+	public void setMenuItemDao(final MenuItemDao menuItemDao) {
 		this.menuItemDao = menuItemDao;
 	}
 
@@ -27,23 +35,54 @@ public class MenuItemService {
 		return menuItemDao;
 	}
 
+	/**
+	 * 
+	 * @return
+	 * @throws ClassNotFoundException
+	 * @throws IOException
+	 * @throws SQLException
+	 */
 	public List<MenuItem> getMenuItemListAdmin() throws ClassNotFoundException, IOException, SQLException {
 
 		return menuItemDao.getMenuItemListAdmin();
 
 	}
 
+	/**
+	 * 
+	 * @return
+	 * @throws ClassNotFoundException
+	 * @throws IOException
+	 * @throws SQLException
+	 */
 	public List<MenuItem> getMenuItemListCustomer() throws ClassNotFoundException, IOException, SQLException {
 
 		return menuItemDao.getMenuItemListCustomer();
 	}
 
-	public void modifyMenuItem(MenuItem menuItem) throws ClassNotFoundException, IOException, SQLException, ParseException {
+	/**
+	 * 
+	 * @param menuItem
+	 * @throws ClassNotFoundException
+	 * @throws IOException
+	 * @throws SQLException
+	 * @throws ParseException
+	 */
+	public void modifyMenuItem(final MenuItem menuItem)
+			throws ClassNotFoundException, IOException, SQLException, ParseException {
 		menuItemDao.modifyMenuItem(menuItem);
 
 	}
 
-	public MenuItem getMenuItem(long menuitemId) throws ClassNotFoundException, IOException, SQLException {
+	/**
+	 * 
+	 * @param menuitemId
+	 * @return
+	 * @throws ClassNotFoundException
+	 * @throws IOException
+	 * @throws SQLException
+	 */
+	public MenuItem getMenuItem(final long menuitemId) throws ClassNotFoundException, IOException, SQLException {
 		return menuItemDao.getMenuItem(menuitemId);
 
 	}
