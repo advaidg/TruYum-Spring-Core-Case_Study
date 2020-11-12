@@ -13,20 +13,21 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.AbstractApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.cognizant.truyum.dao.CartEmptyException;
 import com.cognizant.truyum.model.MenuItem;
-@Configuration
+
 public class CartServiceTest {
 	CartService cartService;
 	MenuItemService menuItemService;
 
 	@Before
 	public void initializeService() {
-		ApplicationContext context = new AnnotationConfigApplicationContext();
-		((AnnotationConfigApplicationContext) context).scan("com.cognizant.truyum");
-		 ((AbstractApplicationContext) context).refresh();
-		menuItemService = (MenuItemService) context.getBean("menuItemService");
+		AnnotationConfigApplicationContext context = new  AnnotationConfigApplicationContext();
+		 context.scan("com.cognizant.truyum");
+		 context.refresh();
+		menuItemService = context.getBean(MenuItemService.class);
 		cartService = (CartService) context.getBean("CartService");
 
 	}

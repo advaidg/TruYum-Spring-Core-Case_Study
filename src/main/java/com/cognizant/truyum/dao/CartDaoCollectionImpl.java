@@ -15,6 +15,15 @@ import com.cognizant.truyum.service.MenuItemService;
 public class CartDaoCollectionImpl implements CartDao {
 
 	private Map<Long, Cart> userCarts;
+	private MenuItemDao menuItemDao;
+
+	public MenuItemDao getMenuItemDao() {
+		return menuItemDao;
+	}
+
+	public void setMenuItemDao(MenuItemDao menuItemDao) {
+		this.menuItemDao = menuItemDao;
+	}
 
 	public Map<Long, Cart> getUserCarts() {
 		return this.userCarts;

@@ -83,9 +83,9 @@
 	</bean>
 	
 
-	<bean id="menuItemDaoCollectionImpl"
-		class="com.cognizant.truyum.dao.MenuItemDaoCollectionImpl">
-		<property name="menuItemList">
+	<bean id="menuItemList"
+		class="java.util.ArrayList">
+		 <constructor-arg>
 			<list>
 				<ref bean="sandwich" />
 				<ref bean="burger" />
@@ -94,8 +94,11 @@
 				<ref bean="brownie" />
 				
 			</list>
-		</property>
-
+		</constructor-arg>
+	
+	</bean>
+	<bean id="menuItemDao" class="com.cognizant.truyum.dao.MenuItemDaoCollectionImpl">
+		<property name="menuItemList" ref="menuItemList"></property>
 	</bean>
 	<bean id="menuItemService"
 		class="com.cognizant.truyum.service.MenuItemService">

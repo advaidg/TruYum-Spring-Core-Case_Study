@@ -14,9 +14,8 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.AbstractApplicationContext;
 
 import com.cognizant.truyum.model.MenuItem;
 
@@ -32,10 +31,10 @@ public class MenuItemServiceTest {
 
 	@Before
 	public void initializeService() {
-		ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
-		// context.scan("com.cognizant.truyum");
-		// context.refresh();
-		menuItemService = (MenuItemService) context.getBean("menuItemService");
+		AnnotationConfigApplicationContext context = new  AnnotationConfigApplicationContext();
+		 context.scan("com.cognizant.truyum");
+		 context.refresh();
+		menuItemService = context.getBean(MenuItemService.class);
 
 	}
 
